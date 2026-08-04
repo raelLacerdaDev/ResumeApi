@@ -1,6 +1,6 @@
 package org.example.resumeapi.controllers
 
-import org.example.resumeapi.dtos.ProjectDto
+import org.example.resumeapi.dtos.response.ProjectDto
 import org.example.resumeapi.services.ProjectService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable

@@ -1,6 +1,6 @@
 package org.example.resumeapi.services
 
-import org.example.resumeapi.dtos.ProjectDto
+import org.example.resumeapi.dtos.response.ProjectDto
 import org.example.resumeapi.mappers.toDto
 import org.example.resumeapi.repositories.ProjectRepository
 import org.springframework.data.domain.Page

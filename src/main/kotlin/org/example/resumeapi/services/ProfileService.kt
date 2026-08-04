@@ -1,6 +1,6 @@
 package org.example.resumeapi.services
 
-import org.example.resumeapi.dtos.ProfileDto
+import org.example.resumeapi.dtos.response.ProfileDto
 import org.example.resumeapi.mappers.toDto
 import org.example.resumeapi.repositories.ProfileRepository
 import org.example.resumeapi.services.exceptions.ResourceNotFoundException

@@ -1,11 +1,13 @@
-package org.example.resumeapi.dtos
+package org.example.resumeapi.dtos.request
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Size
+import org.example.resumeapi.dtos.response.ProjectDto
+import org.hibernate.validator.constraints.URL
 
 
-data class ProfileDto(
+data class ProfileRequestDto(
     val id: Long? = null,
 
     @field:NotBlank
@@ -17,14 +19,15 @@ data class ProfileDto(
     @field:Size(max = 254)
     val email: String,
 
-    @field:NotBlank
+    @field:URL
     @field:Size(max = 2083)
     val linkedinUrl: String,
 
-    @field:NotBlank
+    @field:URL
     @field:Size(max = 2083)
     val githubUrl: String,
 
+    @field:URL
     @field:Size(max = 2083)
     val leetcodeUrl: String? = null,
 

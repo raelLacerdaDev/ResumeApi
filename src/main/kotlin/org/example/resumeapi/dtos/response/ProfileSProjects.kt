@@ -1,4 +1,4 @@
-package org.example.resumeapi.dtos
+package org.example.resumeapi.dtos.response
 
 import org.springframework.data.domain.Page
 

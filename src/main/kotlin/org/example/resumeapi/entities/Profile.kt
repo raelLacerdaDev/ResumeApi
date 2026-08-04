@@ -7,24 +7,22 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
-import org.example.resumeapi.dtos.ProjectDto
-
 
 @Entity
 @Table(name = "tb_profile")
 class Profile(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
-    val name: String,
-    val email: String,
+    var name: String,
+    var email: String,
     @Column(name = "linkedin_url")
-    val linkedinUrl: String,
+    var linkedinUrl: String,
     @Column(name = "github_url")
-    val githubUrl: String,
+    var githubUrl: String,
     @Column(name = "leetcode_url")
-    val leetcodeUrl: String? = null,
-    val phone: String,
-    val summary: String? = null,
+    var leetcodeUrl: String? = null,
+    var phone: String,
+    var summary: String? = null,
 
     @OneToMany(mappedBy = "profile")
     private val _projects: MutableSet<Project> = mutableSetOf(),
@@ -36,9 +34,11 @@ class Profile(
         if (other !is Profile) return false
         return id == other.id
     }
+
     override fun hashCode(): Int {
         return id?.hashCode() ?: 0
     }
+
     override fun toString(): String {
         return "Profile(id: $id, name: $name, email: $email, linkedinUrl: $linkedinUrl, githubUrl: $githubUrl, leetcodeUrl: $leetcodeUrl, phone: $phone, summary: $summary) )"
     }

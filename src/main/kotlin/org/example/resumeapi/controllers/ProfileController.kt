@@ -1,7 +1,7 @@
 package org.example.resumeapi.controllers
 
-import org.example.resumeapi.dtos.ProfileDto
-import org.example.resumeapi.dtos.ProfileSProjects
+import org.example.resumeapi.dtos.response.ProfileDto
+import org.example.resumeapi.dtos.response.ProfileSProjects
 import org.example.resumeapi.services.ProfileService
 import org.example.resumeapi.services.ProjectService
 import org.springframework.data.domain.Pageable

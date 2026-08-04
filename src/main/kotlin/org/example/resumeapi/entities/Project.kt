@@ -13,13 +13,13 @@ import jakarta.persistence.Table
 class Project (
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
-    val name: String,
-    val description: String,
-    val url: String,
+    var name: String,
+    var description: String,
+    var url: String,
 
     @ManyToOne
     @JoinColumn(name="profile_id", nullable=false)
-    val profile: Profile,
+    var profile: Profile,
 ) {
     override fun toString(): String {
         return "Project(id=$id, name='$name', description='$description', url='$url')"

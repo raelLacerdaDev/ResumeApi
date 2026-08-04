@@ -2,8 +2,8 @@ package org.example.resumeapi.controllers.handler
 
 
 import jakarta.servlet.http.HttpServletRequest
+import org.example.resumeapi.services.exceptions.DatabaseException
 import org.example.resumeapi.services.exceptions.ResourceNotFoundException
-import org.springframework.data.crossstore.ChangeSetPersister
 import org.springframework.http.HttpStatus
 import org.springframework.http.ProblemDetail
 import org.springframework.web.bind.MethodArgumentNotValidException
@@ -42,6 +42,15 @@ class ControllerExceptionHandler {
         val problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, "Resource Not Found")
         problemDetail.instance = URI.create(request.requestURI)
         problemDetail.title = "Resource Not Found"
+        problemDetail.setProperty("timestamp", Instant.now())
+        return problemDetail
+    }
+
+    @ExceptionHandler(DatabaseException::class)
+    fun database(e: DatabaseException, request: HttpServletRequest) : ProblemDetail {
+        val problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, "Data integrity violation")
+        problemDetail.instance = URI.create(request.requestURI)
+        problemDetail.title = "Data integrity violation"
         problemDetail.setProperty("timestamp", Instant.now())
         return problemDetail
     }
