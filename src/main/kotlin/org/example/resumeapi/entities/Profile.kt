@@ -26,8 +26,13 @@ class Profile(
 
     @OneToMany(mappedBy = "profile")
     private val _projects: MutableSet<Project> = mutableSetOf(),
+
+    @OneToMany(mappedBy = "profile")
+    private val _skills: MutableSet<Skill> = mutableSetOf(),
 ) {
     val projects get() = _projects.toList()
+
+    val skills get() = _skills.toList()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -49,6 +54,14 @@ class Profile(
 
     fun removeProject(project: Project) {
         _projects.remove(project)
+    }
+
+    fun addSkill(skill: Skill) {
+        _skills.add(skill)
+    }
+
+    fun removeSkill(skill: Skill) {
+        _skills.remove(skill)
     }
 
 }

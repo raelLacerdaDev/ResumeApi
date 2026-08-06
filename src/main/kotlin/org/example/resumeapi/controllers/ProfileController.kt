@@ -2,8 +2,11 @@ package org.example.resumeapi.controllers
 
 import org.example.resumeapi.dtos.response.ProfileDto
 import org.example.resumeapi.dtos.response.ProfileSProjects
+import org.example.resumeapi.dtos.response.ProfileSSkills
+import org.example.resumeapi.dtos.response.SkillDto
 import org.example.resumeapi.services.ProfileService
 import org.example.resumeapi.services.ProjectService
+import org.example.resumeapi.services.SkillService
 import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -16,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/profiles")
 class ProfileController(
     private val service: ProfileService,
-    private val projectService: ProjectService
+    private val projectService: ProjectService,
+    private val skillService: SkillService
 ) {
 
     @GetMapping
@@ -36,6 +40,13 @@ class ProfileController(
         val profile = service.findById(id)
         val projects = projectService.findByProfileId(id, pageable = pageable)
         return ResponseEntity.status(HttpStatus.OK).body(ProfileSProjects(profile = profile, projects = projects))
+    }
+
+    @GetMapping("/{id}/skills")
+    fun findBySkillIdById(@PathVariable id: Long, pageable: Pageable) : ResponseEntity<ProfileSSkills> {
+        val profile = service.findById(id)
+        val skills = skillService.findByProfileId(id, pageable)
+        return ResponseEntity.ok(ProfileSSkills(profile = profile, skills = skills))
     }
 
 

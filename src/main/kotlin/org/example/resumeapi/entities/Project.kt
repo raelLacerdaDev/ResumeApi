@@ -19,7 +19,7 @@ class Project (
 
     @ManyToOne
     @JoinColumn(name="profile_id", nullable=false)
-    var profile: Profile,
+    var profile: Profile? = null,
 ) {
     override fun toString(): String {
         return "Project(id=$id, name='$name', description='$description', url='$url')"

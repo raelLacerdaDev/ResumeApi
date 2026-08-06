@@ -11,5 +11,4 @@ data class ProfileDto(
     val leetcodeUrl: String? = null,
     val phone: String,
     val summary: String? = null,
-    val projects: List<ProjectDto> = emptyList(),
 )

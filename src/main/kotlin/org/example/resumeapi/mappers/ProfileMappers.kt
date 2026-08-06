@@ -12,5 +12,4 @@ fun Profile.toDto() : ProfileDto = ProfileDto(
     leetcodeUrl = this.leetcodeUrl,
     phone = this.phone,
     summary = this.summary,
-    projects = this.projects.map { it.toDto() }
 )

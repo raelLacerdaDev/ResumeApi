@@ -30,6 +30,12 @@ class SkillService(
         throw ResourceNotFoundException("Resource not found")
     }.toDto()
 
+    @Transactional(readOnly = true)
+    fun findByProfileId(id: Long, pageable: Pageable): Page<SkillDto> {
+        val pages = skillRepository.findByProfileId(id, pageable)
+        return pages.map { it.toDto() }
+    }
+
     @Transactional
     fun insert(dto: SkillRequestDto) : SkillDto {
         val newItem = Skill(name = dto.name)
