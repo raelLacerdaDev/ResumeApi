@@ -18,7 +18,8 @@ A comunicação do sistema foi projetada para separar requisições autenticadas
 * O **Site Client** realiza apenas requisições de leitura (GET) públicas para exibição do portfólio.
 * A API gerencia a lógica e persiste os dados no **PostgreSQL**.
 
-> **Nota:** Adicione a `image_8c6336.png` aqui no seu repositório.
+<img width="1015" height="651" alt="Architecture_section" src="https://github.com/user-attachments/assets/6d18a655-d157-44ff-99a2-c344f531c343" />
+
 
 ### Arquitetura Interna da API
 O projeto no Spring Boot segue uma arquitetura em camadas bem definida para garantir a separação de responsabilidades:
@@ -27,7 +28,8 @@ O projeto no Spring Boot segue uma arquitetura em camadas bem definida para gara
 2. **Service:** Camada que contém a regra de negócio. A comunicação com o Controller é feita de forma isolada utilizando `DTOs` (Data Transfer Objects).
 3. **Repository:** Camada responsável pela persistência de dados no banco, comunicando-se com o Service através de `Entities/ORM`.
 
-> **Nota:** Adicione a `image_8c107f.png` aqui no seu repositório.
+<img width="1015" height="1492" alt="api_Architecture_section" src="https://github.com/user-attachments/assets/f91dfc8a-c8cb-4bc0-a13f-753f72c79102" />
+
 
 ## ⚙️ Como Executar
 
